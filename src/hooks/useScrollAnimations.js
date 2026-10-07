@@ -740,30 +740,29 @@ function useScrollAnimations() {
          */
 
         const mobileReveal = (
-          selector,
-          trigger = selector,
-          distance = 38
-        ) => {
-          gsap.fromTo(
             selector,
-            {
-              y: distance,
-              opacity: 0,
-            },
-            {
-              y: 0,
-              opacity: 1,
-              ease: "none",
-              immediateRender: false,
-              scrollTrigger: {
-                trigger,
-                start: "top 94%",
-                end: "top 74%",
-                scrub: 0.65,
+            trigger = selector,
+            distance = 38
+          ) => {
+            gsap.fromTo(
+              selector,
+              {
+                y: distance,
+                opacity: 0,
               },
-            }
-          );
-        };
+              {
+                y: 0,
+                opacity: 1,
+                ease: "none",
+                scrollTrigger: {
+                  trigger,
+                  start: "top 94%",
+                  end: "top 74%",
+                  scrub: 0.65,
+                },
+              }
+            );
+          };
 
         mobileReveal(
           ".services__heading",
@@ -867,22 +866,7 @@ function useScrollAnimations() {
       });
     });
 
-    /*
-     * Refresh once images/fonts settle.
-     */
-
-    const refresh = () => {
-      ScrollTrigger.refresh();
-    };
-
-    window.addEventListener("load", refresh);
-
-    const timer = window.setTimeout(refresh, 300);
-
     return () => {
-      window.removeEventListener("load", refresh);
-      window.clearTimeout(timer);
-
       ctx.revert();
     };
   }, []);

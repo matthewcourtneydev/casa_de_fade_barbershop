@@ -1,0 +1,505 @@
+.gallery {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  
+    background: var(--color-black);
+    color: var(--color-white);
+  }
+  
+  /* =========================================================
+     CONTAINER
+     ========================================================= */
+  
+  .gallery__inner {
+    width: 100%;
+    max-width: 1600px;
+  
+    margin: 0 auto;
+    padding: 82px var(--page-padding) 72px;
+  }
+  
+  /* =========================================================
+     HEADER
+     ========================================================= */
+  
+  .gallery__header {
+    margin-bottom: 58px;
+  }
+  
+  .gallery__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  
+    margin-bottom: 30px;
+  
+    color: var(--color-red);
+  
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+  
+    text-transform: uppercase;
+  }
+  
+  .gallery__eyebrow-line {
+    width: 52px;
+    height: 1px;
+  
+    background: var(--color-red);
+  }
+  
+  .gallery__header-layout {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 60px;
+  }
+  
+  .gallery__heading {
+    margin: 0;
+  
+    color: var(--color-white);
+  
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 5.8vw, 6.5rem);
+    font-weight: 400;
+    line-height: 0.79;
+    letter-spacing: -0.055em;
+  
+    text-transform: uppercase;
+  }
+  
+  .gallery__heading span {
+    color: var(--color-red);
+  }
+  
+  .gallery__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 7px;
+  
+    padding-bottom: 3px;
+  
+    color: rgba(247, 245, 241, 0.4);
+  
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+  
+    text-align: right;
+    text-transform: uppercase;
+  }
+  
+  /* =========================================================
+     FEATURED ROW
+     ========================================================= */
+  
+  .gallery__featured {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(18px, 2vw, 28px);
+  
+    padding-top: 28px;
+  
+    border-top: 1px solid rgba(247, 245, 241, 0.15);
+  }
+  
+  /* =========================================================
+     SUPPORTING ROW
+     ========================================================= */
+  
+  .gallery__supporting {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(14px, 1.5vw, 22px);
+  
+    margin-top: 56px;
+  }
+  
+  /* =========================================================
+     CARDS
+     ========================================================= */
+  
+  .gallery-card {
+    min-width: 0;
+    margin: 0;
+  }
+  
+  .gallery-card__image {
+    position: relative;
+  
+    width: 100%;
+    overflow: hidden;
+  
+    background: #111;
+  }
+  
+  /*
+   * Both featured photos use exactly the same frame.
+   * This creates the strong horizontal alignment missing
+   * from the previous layout.
+   */
+  
+  .gallery-card--featured .gallery-card__image {
+    aspect-ratio: 16 / 10;
+  }
+  
+  /*
+   * Supporting images also share one intentional ratio.
+   */
+  
+  .gallery-card--supporting .gallery-card__image {
+    aspect-ratio: 4 / 5;
+  }
+  
+  .gallery-card__image img {
+    display: block;
+  
+    width: 100%;
+    height: 100%;
+  
+    object-fit: cover;
+  
+    filter:
+      saturate(0.9)
+      contrast(1.02)
+      brightness(0.97);
+  
+    transform: scale(1.001);
+  
+    transition:
+      transform 600ms cubic-bezier(0.2, 0.75, 0.25, 1),
+      filter 400ms ease;
+  }
+  
+  .gallery-card:hover .gallery-card__image img {
+    filter:
+      saturate(1)
+      contrast(1)
+      brightness(1);
+  
+    transform: scale(1.018);
+  }
+  
+  /* =========================================================
+     INDIVIDUAL CROPS
+     ========================================================= */
+  
+  /*
+   * These can be adjusted individually once we see the
+   * photographs inside the final frames.
+   */
+  
+  .gallery-card--fade img {
+    object-position: 50% 45%;
+  }
+  
+  .gallery-card--curly img {
+    object-position: 50% 40%;
+  }
+  
+  .gallery-card--beard img {
+    object-position: 51% 42%;
+  }
+  
+  .gallery-card--red img {
+    object-position: 50% 40%;
+  }
+  
+  .gallery-card--chair img {
+    object-position: 50% 43%;
+  }
+  
+  .gallery-card--process img {
+    object-position: 50% 43%;
+  }
+  
+  /* =========================================================
+     CAPTIONS
+     ========================================================= */
+  
+  .gallery-card__caption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  
+    padding-top: 11px;
+  
+    color: rgba(247, 245, 241, 0.48);
+  
+    font-size: 0.51rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+  
+    text-transform: uppercase;
+  }
+  
+  .gallery-card__index {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  
+    color: rgba(247, 245, 241, 0.75);
+  }
+  
+  .gallery-card__index i {
+    color: var(--color-red);
+  
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .gallery-card__label {
+    text-align: right;
+  }
+  
+  /* =========================================================
+     FOOTER
+     ========================================================= */
+  
+  .gallery__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  
+    margin-top: 62px;
+    padding-top: 20px;
+  
+    border-top: 1px solid rgba(247, 245, 241, 0.15);
+  
+    color: rgba(247, 245, 241, 0.34);
+  
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+  
+    text-transform: uppercase;
+  }
+  
+  /* =========================================================
+     LARGE DESKTOP
+     ========================================================= */
+  
+  @media (min-width: 1500px) {
+    .gallery__inner {
+      padding-top: 88px;
+      padding-bottom: 78px;
+    }
+  
+    .gallery__header {
+      margin-bottom: 64px;
+    }
+  
+    .gallery__supporting {
+      margin-top: 62px;
+    }
+  }
+  
+  /* =========================================================
+     TABLET
+     ========================================================= */
+  
+  @media (min-width: 801px) and (max-width: 1050px) {
+    .gallery__inner {
+      padding: 72px var(--page-padding) 66px;
+    }
+  
+    .gallery__header {
+      margin-bottom: 48px;
+    }
+  
+    .gallery__heading {
+      font-size: clamp(3.8rem, 7.5vw, 5.2rem);
+    }
+  
+    .gallery__featured {
+      gap: 18px;
+  
+      padding-top: 22px;
+    }
+  
+    .gallery-card--featured .gallery-card__image {
+      aspect-ratio: 4 / 3;
+    }
+  
+    /*
+     * Four supporting photos become two-by-two.
+     */
+  
+    .gallery__supporting {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 38px 18px;
+  
+      margin-top: 44px;
+    }
+  
+    .gallery-card--supporting .gallery-card__image {
+      aspect-ratio: 4 / 5;
+    }
+  
+    .gallery__footer {
+      margin-top: 52px;
+    }
+  }
+  
+  /* =========================================================
+     MOBILE
+     ========================================================= */
+  
+  @media (max-width: 800px) {
+    .gallery__inner {
+      padding: 68px 20px 60px;
+    }
+  
+    .gallery__header {
+      margin-bottom: 40px;
+    }
+  
+    .gallery__eyebrow {
+      margin-bottom: 26px;
+    }
+  
+    .gallery__header-layout {
+      display: block;
+    }
+  
+    .gallery__heading {
+      font-size: clamp(3.6rem, 15.5vw, 5.6rem);
+      line-height: 0.8;
+    }
+  
+    .gallery__meta {
+      align-items: flex-start;
+  
+      margin-top: 26px;
+      padding: 0;
+  
+      text-align: left;
+    }
+  
+    /*
+     * Keep the featured work side-by-side even on mobile.
+     * This prevents the gallery from turning into a long
+     * sequence of giant images.
+     */
+  
+    .gallery__featured {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+  
+      padding-top: 16px;
+    }
+  
+    .gallery-card--featured .gallery-card__image {
+      aspect-ratio: 4 / 5;
+    }
+  
+    /*
+     * Supporting work remains a compact two-column grid.
+     */
+  
+    .gallery__supporting {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 10px;
+  
+      margin-top: 34px;
+    }
+  
+    .gallery-card--supporting .gallery-card__image {
+      aspect-ratio: 4 / 5;
+    }
+  
+    .gallery-card__caption {
+      display: block;
+  
+      padding-top: 8px;
+  
+      font-size: 0.45rem;
+      line-height: 1.45;
+    }
+  
+    .gallery-card__index {
+      display: flex;
+  
+      margin-bottom: 3px;
+    }
+  
+    .gallery-card__label {
+      display: block;
+  
+      text-align: left;
+    }
+  
+    /*
+     * No hover-dependent treatment on touch layouts.
+     */
+  
+    .gallery-card__image img {
+      filter:
+        saturate(0.94)
+        contrast(1.02)
+        brightness(0.98);
+    }
+  
+    .gallery-card:hover .gallery-card__image img {
+      filter:
+        saturate(0.94)
+        contrast(1.02)
+        brightness(0.98);
+  
+      transform: none;
+    }
+  
+    .gallery__footer {
+      margin-top: 44px;
+  
+      font-size: 0.46rem;
+    }
+  }
+  
+  /* =========================================================
+     SMALL MOBILE
+     ========================================================= */
+  
+  @media (max-width: 480px) {
+    .gallery__inner {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+  
+    .gallery__heading {
+      font-size: 15vw;
+    }
+  
+    .gallery__footer {
+      align-items: flex-start;
+  
+      font-size: 0.44rem;
+    }
+  
+    .gallery__footer span:last-child {
+      text-align: right;
+    }
+  }
+  
+  /* =========================================================
+     REDUCED MOTION
+     ========================================================= */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-card__image img {
+      transition: none;
+    }
+  
+    .gallery-card:hover .gallery-card__image img {
+      transform: none;
+    }
+  }

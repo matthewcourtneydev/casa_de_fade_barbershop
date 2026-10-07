@@ -1,0 +1,20 @@
+:root {
+  /* Colors */
+  --color-black: #080808;
+  --color-white: #f7f5f1;
+  --color-red: #d71920;
+  --color-red-dark: #b90f16;
+  --color-gray: #a8a8a8;
+
+  /* Layout */
+  --header-height: 88px;
+  --page-padding: clamp(24px, 4vw, 72px);
+
+  /* Typography */
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: Arial, Helvetica, sans-serif;
+
+  /* Motion */
+  --transition-fast: 180ms ease;
+  --transition-default: 300ms ease;
+}

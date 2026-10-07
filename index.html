@@ -2,12 +2,157 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- =====================================================
+         BASIC
+         ===================================================== -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>casa-de-fades</title>
+
+    <title>Casa de Fades | Barber Shop in Rock Hill, SC</title>
+
+    <meta
+      name="description"
+      content="Casa de Fades is a barber shop in Rock Hill, SC specializing in precision fades, tapers, beard grooming, lineups, kids cuts, and more. Serving Rock Hill, Fort Mill, and the Charlotte area."
+    />
+
+    <meta name="robots" content="index, follow" />
+
+    <meta name="theme-color" content="#080808" />
+
+    <!-- =====================================================
+         CANONICAL
+         ===================================================== -->
+
+    <link rel="canonical" href="https://casadefades.com/" />
+
+    <!-- =====================================================
+         FAVICON
+         ===================================================== -->
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- =====================================================
+         OPEN GRAPH / SOCIAL SHARING
+         ===================================================== -->
+
+    <meta property="og:type" content="website" />
+
+    <meta property="og:site_name" content="Casa de Fades" />
+
+    <meta
+      property="og:title"
+      content="Casa de Fades | Barber Shop in Rock Hill, SC"
+    />
+
+    <meta
+      property="og:description"
+      content="Precision fades, tapers, beard grooming, lineups, kids cuts, and more at Casa de Fades in Rock Hill, South Carolina."
+    />
+
+    <meta property="og:url" content="https://casadefades.com/" />
+
+    <meta property="og:locale" content="en_US" />
+
+    <!--
+      We'll add og:image once we create the dedicated
+      social sharing image.
+    -->
+
+    <!-- =====================================================
+         TWITTER / X SHARING
+         ===================================================== -->
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta
+      name="twitter:title"
+      content="Casa de Fades | Barber Shop in Rock Hill, SC"
+    />
+
+    <meta
+      name="twitter:description"
+      content="Precision fades, tapers, beard grooming, lineups, kids cuts, and more in Rock Hill, SC."
+    />
+
+    <!-- =====================================================
+         LOCAL BUSINESS STRUCTURED DATA
+         ===================================================== -->
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BarberShop",
+        "@id": "https://casadefades.com/#barbershop",
+        "name": "Casa de Fades",
+        "url": "https://casadefades.com/",
+        "telephone": "+1-803-444-0118",
+        "description": "Casa de Fades is a barber shop in Rock Hill, South Carolina specializing in precision fades, tapers, beard grooming, lineups, kids cuts, and detail work.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2260 Cross Pointe Dr #97",
+          "addressLocality": "Rock Hill",
+          "addressRegion": "SC",
+          "postalCode": "29730",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Rock Hill"
+          },
+          {
+            "@type": "City",
+            "name": "Fort Mill"
+          },
+          {
+            "@type": "City",
+            "name": "Charlotte"
+          }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "10:00",
+            "closes": "19:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Sunday",
+            "opens": "11:00",
+            "closes": "16:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/casadefadesbarbershop/",
+          "https://www.facebook.com/soycardic/"
+        ],
+        "potentialAction": {
+          "@type": "ReserveAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://booksy.com/en-us/175045_chriss-the-barber_barber-shop_35253_rock-hill"
+          },
+          "result": {
+            "@type": "Reservation",
+            "name": "Book an appointment"
+          }
+        }
+      }
+    </script>
   </head>
+
   <body>
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

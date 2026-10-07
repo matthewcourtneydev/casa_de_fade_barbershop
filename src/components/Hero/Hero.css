@@ -1,0 +1,480 @@
+.hero {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 61% 39%;
+
+  width: 100%;
+  height: calc(100svh - var(--header-height));
+  min-height: 660px;
+
+  overflow: hidden;
+
+  background: var(--color-black);
+
+  /*
+     * Shared hero content rail.
+     * This should match the horizontal gutter used by the header.
+     */
+  --hero-gutter: var(--page-padding);
+}
+
+/* =========================================================
+     MAIN IMAGE
+     ========================================================= */
+
+.hero__image-column {
+  position: relative;
+
+  min-width: 0;
+
+  overflow: hidden;
+}
+
+.hero__image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: 48% center;
+}
+
+.hero__image-shade {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.13) 0%,
+      transparent 48%,
+      rgba(0, 0, 0, 0.05) 100%
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, transparent 34%);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+     RED PANEL
+     ========================================================= */
+
+.hero__red-panel {
+  position: relative;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  /*
+     * Vertical padding stays local to the panel.
+     * Horizontal positioning is handled by the content rails.
+     */
+  padding: 38px 0 40px;
+
+  background: var(--color-red);
+}
+
+/* =========================================================
+     TOP LABELS
+     ========================================================= */
+
+.hero__panel-top {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+  justify-content: space-between;
+
+  /*
+     * Left side receives a smaller local inset because the
+     * panel itself already begins well inside the viewport.
+     *
+     * Right side aligns with the same viewport rail as
+     * the header content.
+     */
+  padding-left: 42px;
+  padding-right: var(--hero-gutter);
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 0.59rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   SECONDARY IMAGE
+   ========================================================= */
+
+.hero__secondary-image-wrapper {
+  position: absolute;
+  z-index: 2;
+
+  /*
+     * Keep the portrait's composition stable.
+     * Width can respond to the panel, but the image itself
+     * always retains its natural proportions.
+     */
+  top: clamp(80px, 13vh, 135px);
+  left: 50%;
+
+  width: clamp(260px, 58%, 470px);
+
+  transform: translateX(-50%);
+
+  overflow: hidden;
+}
+
+.hero__secondary-image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  filter: grayscale(100%) contrast(1.06) brightness(1.02);
+}
+
+/* =========================================================
+     PANEL COPY
+     ========================================================= */
+
+.hero__panel-copy {
+  position: absolute;
+  z-index: 2;
+
+  /*
+     * Align the right edge with the shared page rail.
+     */
+  right: var(--hero-gutter);
+  bottom: 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  color: rgba(0, 0, 0, 0.19);
+
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.1vw, 3.9rem);
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: -0.055em;
+
+  text-align: right;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+     HERO TITLE ARTWORK
+     ========================================================= */
+
+.hero__title-graphic {
+  position: absolute;
+  z-index: 5;
+
+  display: block;
+
+  height: auto;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/*
+   * Desktop artwork
+   *
+   * CASA DE / FADES / BARBERSHOP are one transparent image,
+   * so their internal typography stays locked together.
+   */
+
+.hero__title-graphic--desktop {
+  top: 55%;
+  left: 7.5%;
+
+  width: min(69vw, 1220px);
+
+  transform: translateY(-50%);
+}
+
+/*
+   * Mobile artwork is hidden until the mobile breakpoint.
+   */
+
+.hero__title-graphic--mobile {
+  display: none;
+}
+
+/* =========================================================
+     LOCATION
+     ========================================================= */
+
+.hero__location {
+  position: absolute;
+  z-index: 6;
+
+  /*
+     * Same left rail as the header/logo.
+     */
+  bottom: 34px;
+  left: var(--hero-gutter);
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  color: var(--color-white);
+
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+
+  text-transform: uppercase;
+}
+
+.hero__location-line {
+  display: block;
+
+  width: clamp(60px, 8vw, 130px);
+  height: 1px;
+
+  background: var(--color-red);
+}
+
+/* =========================================================
+     SCROLL
+     ========================================================= */
+
+.hero__scroll {
+  position: absolute;
+  z-index: 6;
+
+  /*
+     * This is the important change visible in your screenshot.
+     * SCROLL now terminates on the same right-hand rail as
+     * the header content instead of hugging the viewport edge.
+     */
+  right: var(--hero-gutter);
+  bottom: 32px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.hero__scroll:hover {
+  color: var(--color-white);
+}
+
+.hero__scroll:focus-visible {
+  color: var(--color-white);
+
+  outline: 1px solid var(--color-white);
+  outline-offset: 6px;
+}
+
+/* =========================================================
+     LARGE DESKTOP
+     ========================================================= */
+
+@media (min-width: 1500px) {
+  .hero__title-graphic--desktop {
+    top: 55%;
+    left: 7%;
+
+    width: min(70vw, 1280px);
+  }
+
+  /*
+     * Keep the portrait's proportions instead of pinning
+     * both left and right edges.
+     */
+  .hero__secondary-image-wrapper {
+    top: 15%;
+    right: 7%;
+
+    width: 60%;
+    height: auto;
+  }
+}
+
+/* =========================================================
+     TABLET
+     ========================================================= */
+
+@media (max-width: 1050px) {
+  .hero {
+    grid-template-columns: 65% 35%;
+
+    --hero-gutter: clamp(24px, 4vw, 40px);
+  }
+
+  .hero__red-panel {
+    padding-top: 30px;
+    padding-bottom: 34px;
+  }
+
+  .hero__panel-top {
+    padding-left: 28px;
+    padding-right: var(--hero-gutter);
+  }
+
+  .hero__title-graphic--desktop {
+    top: 54%;
+    left: 5%;
+
+    width: 79vw;
+
+    transform: translateY(-50%);
+  }
+
+  .hero__panel-copy {
+    right: var(--hero-gutter);
+    bottom: 34px;
+
+    font-size: clamp(1.7rem, 4vw, 2.8rem);
+  }
+}
+
+@media (max-width: 1050px) and (min-width: 801px) {
+  .hero__secondary-image-wrapper {
+    top: clamp(78px, 12vh, 110px);
+    left: 50%;
+
+    width: min(72%, 360px);
+
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================================================
+     MOBILE
+     ========================================================= */
+
+@media (max-width: 950px) {
+  .hero {
+    display: block;
+
+    height: calc(100svh - var(--header-height));
+    min-height: 600px;
+
+    --hero-gutter: 20px;
+  }
+
+  /* Full-screen main image */
+
+  .hero__image-column {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero__image {
+    object-position: 54% center;
+  }
+
+  /*
+     * Stronger lower gradient gives the title artwork
+     * enough contrast against the photograph.
+     */
+
+  .hero__image-shade {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.06) 0%,
+      transparent 25%,
+      rgba(0, 0, 0, 0.12) 52%,
+      rgba(0, 0, 0, 0.78) 100%
+    );
+  }
+
+  /*
+     * Desktop editorial panel disappears on mobile.
+     */
+
+  .hero__red-panel {
+    display: none;
+  }
+
+  /*
+     * Swap title artwork.
+     */
+
+  .hero__title-graphic--desktop {
+    display: none;
+  }
+
+  .hero__title-graphic--mobile {
+    display: block;
+
+    top: auto;
+    right: var(--hero-gutter);
+    bottom: 94px;
+    left: var(--hero-gutter);
+
+    width: auto;
+    max-width: calc(100% - (var(--hero-gutter) * 2));
+
+    transform: none;
+  }
+
+  .hero__location {
+    bottom: 26px;
+    left: var(--hero-gutter);
+
+    gap: 12px;
+
+    font-size: 0.56rem;
+  }
+
+  .hero__location-line {
+    width: 50px;
+  }
+
+  .hero__scroll {
+    right: var(--hero-gutter);
+    bottom: 23px;
+  }
+}
+
+/* =========================================================
+     SMALL MOBILE
+     ========================================================= */
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 560px;
+
+    --hero-gutter: 16px;
+  }
+
+  .hero__title-graphic--mobile {
+    right: var(--hero-gutter);
+    bottom: 92px;
+    left: var(--hero-gutter);
+
+    width: auto;
+    max-width: calc(100% - (var(--hero-gutter) * 2));
+  }
+
+  .hero__location {
+    left: var(--hero-gutter);
+  }
+
+  .hero__scroll {
+    right: var(--hero-gutter);
+  }
+}
